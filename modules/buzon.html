@@ -1,0 +1,67 @@
+ <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Carrera</th>
+                  <th>Semestre</th>
+                  <th>Telefono</th>
+                  <th>Objetivo</th>
+                  <th>N° control</th>
+                </tr>
+              </thead>
+              <tbody ng-repeat="dat in datos | pagination: curPage * pageSize | limitTo: pageSize">
+                <tr ng-click="cosa(dat.carrera, dat.semestre, dat.telefono, dat.objetivo, dat.ncontrol, dat.correo, dat.comentario, dat.fecha, dat.hora)" data-target="#myModal" data-toggle="modal" style="cursor:pointer;">
+                  <td>{{dat.id}}</td>
+                  <td>{{dat.carrera}}</td>
+                  <td>{{dat.semestre}}</td>
+                  <td>{{dat.telefono}}</td>
+                  <td>{{dat.objetivo}}</td>
+                  <td>{{dat.ncontrol}}</td>
+                </tr>
+                </tbody>
+            </table>
+
+                 
+ <ul class="pager" ng-show="datos.length">
+  <li>
+    <button type="button" class="btn btn-primary pull-left" ng-disabled="curPage == 0"ng-click="curPage=curPage-1"> &larr; Atras</button>
+  </li>
+  <li>
+    pagina {{curPage + 1}} de {{ numberOfPages() }}
+  </li>
+  <li>
+    <button type="button" class="btn btn-primary pull-right"ng-disabled="curPage >= datos.length/pageSize - 1" ng-click="curPage = curPage+1">Adelante &rarr;</button>
+  </li>
+</ul>
+
+         <!-- Modal -->
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                  <h4 class="modal-title" id="myModalLabel"><i class="fa fa-envelope-o" style="margin-right:10px"></i>Buzon de quejas y sugerencias</h4>
+                </div>
+                <div class="modal-body">
+
+                  <p><strong>Carrera: </strong><span>{{carrera}}</span></p>
+                  <p><strong>Semestre: </strong><span>{{semestre}}</span></p>
+                  <p><strong>Telefono: </strong><span>{{telefono}}</span></p>
+                  <p><strong>Objetivo: </strong><span>{{objetivo}}</span></p>
+                  <p><strong>Numero de control: </strong><span>{{ncontrol}}</span></p>
+                  <p><strong>Correo: </strong><span>{{correo}}</span></p>
+                  <p class="text-justify"><strong>Comentario: </strong><span>{{comentario}}</span></p>
+                  <p><strong>Fecha: </strong><span>{{fecha}}</span></p>
+                  <p><strong>Hora: </strong><span>{{hora}}</span></p>
+ 
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- modal -->
+

@@ -1,0 +1,60 @@
+@font-face
+{
+	font-family: 'labels';
+	src: url('../fonts/proximanova-regular-webfont.ttf');
+}
+
+label
+{
+	font-family: 'labels';
+}
+
+#content-main
+{
+	background-color: #f9f9f9;
+	background-image: url("");
+}
+
+.alert
+{
+	font-size: 1.3em;
+}
+
+.subcontenido1, .subcontenido2, .subcontenido3
+{
+	width: 60%;
+	margin: 0 auto;
+}
+
+input, textarea
+{
+	margin-bottom: 15px;
+}
+
+#contenido > div.subcontenido1 > button
+{
+	margin-bottom: 15px;
+	margin-top: 15px;
+}
+
+#contenido > div.subcontenido2 > button
+{
+	margin-bottom: 15px;
+	margin-top: 15px;
+}
+
+#contenido > div.subcontenido3 > button
+{
+	margin-bottom: 15px;
+	margin-top: 15px;
+}
+
+#head1:hover, #head2:hover, #head3:hover
+{
+	cursor: pointer;
+}
+
+#registrar1, #registrar2, #registrar3
+{
+	margin: 10px 0px 10px 0px;
+}

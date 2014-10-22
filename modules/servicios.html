@@ -1,0 +1,191 @@
+<link rel="stylesheet" type="text/css" href="css/servicio.css">
+<div class="alert alert-info " role="alert" id="head1">
+  <strong>IMPRESIONES</strong>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>N° control</th>
+        <th>N° de imoresiones</th>
+        <th>Atendido por</th>
+        <th>Fecha</th>
+        <th>Hora</th>
+      </tr>
+    </thead>
+    <tbody ng-repeat="imprimir in impresiones | pagination: curPage * pageSize | limitTo: pageSize">
+      <tr>
+        <td>{{imprimir.id}}</td>
+        <td>{{imprimir.ncontrol}}</td>
+        <td>{{imprimir.nimpresiones}}</td>
+        <td>{{imprimir.atendedor}}</td>
+        <td>{{imprimir.fecha}}</td>
+        <td>{{imprimir.hora}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+ <ul class="pager" ng-show="impresiones.length">
+  <li>
+    <button type="button" class="btn btn-primary pull-left" ng-disabled="curPage == 0"ng-click="curPage=curPage-1"> &larr; Atras</button>
+  </li>
+  <li>
+    pagina {{curPage + 1}} de {{ numberOfPages() }}
+  </li>
+  <li>
+    <button type="button" class="btn btn-primary pull-right"ng-disabled="curPage >= impresiones.length/pageSize - 1" ng-click="curPage = curPage+1">Adelante &rarr;</button>
+  </li>
+</ul>
+
+          
+<div class="alert alert-info " role="alert" id="head2">
+  <strong>CABLES DE RED</strong>
+</div>
+
+
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>N° control</th>
+        <th>Atendido por</th>
+        <th>Fecha</th>
+        <th>Hora</th>
+      </tr>
+    </thead>
+    <tbody ng-repeat="cables in cablesred | pagination2: curPage2 * pageSize2 | limitTo: pageSize2">
+      <tr>
+        <td>{{cables.id}}</td>
+        <td>{{cables.ncontrol}}</td>
+        <td>{{cables.atendedor}}</td>
+        <td>{{cables.fecha}}</td>
+        <td>{{cables.hora}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+ <ul class="pager" ng-show="cablesred.length">
+  <li>
+    <button type="button" class="btn btn-primary pull-left" ng-disabled="curPage2 == 0"ng-click="curPage2=curPage2-1"> &larr; Atras</button>
+  </li>
+  <li>
+    pagina {{curPage2 + 1}} de {{ numberOfPages2() }}
+  </li>
+  <li>
+    <button type="button" class="btn btn-primary pull-right"ng-disabled="curPage2 >= cablesred.length/pageSize2 - 1" ng-click="curPage2 = curPage2+1">Adelante &rarr;</button>
+  </li>
+</ul>
+           
+<div class="alert alert-info " role="alert" id="head3">
+  <strong>SOPORTE TECNICO</strong>
+</div>
+        
+
+
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>N° control</th>
+        <th>actividad</th>
+        <th>Atendido por</th>
+        <th>Fecha</th>
+        <th>Hora</th>
+      </tr>
+    </thead>
+    <tbody ng-repeat="suport in soporte | pagination3: curPage3 * pageSize3 | limitTo: pageSize3">
+      <tr ng-click="recibir(suport.id, suport.ncontrol, suport.correo, suport.telefono, suport.actividad, suport.diagnostico, suport.atendedor, suport.fecha, suport.hora)" data-target="#myModal" data-toggle="modal" style="cursor:pointer;">
+        <td>{{suport.id}}</td>
+        <td>{{suport.ncontrol}}</td>
+        <td>{{suport.actividad}}</td>
+        <td>{{suport.atendedor}}</td>
+        <td>{{suport.fecha}}</td>
+        <td>{{suport.hora}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+ <ul class="pager" ng-show="soporte.length">
+  <li>
+    <button type="button" class="btn btn-primary pull-left" ng-disabled="curPage3 == 0"ng-click="curPage3=curPage3-1"> &larr; Atras</button>
+  </li>
+  <li>
+    pagina {{curPage3 + 1}} de {{ numberOfPages2() }}
+  </li>
+  <li>
+    <button type="button" class="btn btn-primary pull-right"ng-disabled="curPage3 >= soporte.length/pageSize3 - 1" ng-click="curPage3 = curPage3+1">Adelante &rarr;</button>
+  </li>
+</ul>
+
+
+
+
+         <!-- Modal -->
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                  <h4 class="modal-title" id="myModalLabel"><i class="fa fa-wrench" style="margin-right:10px"></i>Soporte tecnico</h4>
+                </div>
+                <div class="modal-body">
+
+                  <p><strong>ID: </strong><span>{{id}}</span></p>
+                  <p><strong>Numero de control: </strong><span>{{ncontrol}}</span></p>
+                  <p><strong>Correo: </strong><span>{{correo}}</span></p>
+                  <p><strong>Telefono: </strong><span>{{telefono}}</span></p>
+                  <p><strong>Actividad: </strong><span>{{actividad}}</span></p>
+                  <p><strong>Diagnostico: </strong><span>{{diagnostico}}</span></p>
+                  <p><strong>Atendido por: </strong><span>{{atendedor}}</span></p>
+                  <p><strong>Fecha: </strong><span>{{fecha}}</span></p>
+                  <p><strong>Hora: </strong><span>{{hora}}</span></p>
+ 
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- modal -->
+
+<div class="alert alert-info " role="alert" id="head3">
+  <strong>RESULTADO DE SERVICIOS</strong>
+</div>
+
+<div class="seccion">
+<div class="row">
+  <div class="col-md-6">
+    <div id="canvas-holder" style="width:55%; margin: 0 auto;">
+      <canvas id="chart-area" width="300" height="300"/>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h4 id="pregunta">Total de servicios realizados</h4>
+    <ul>
+      <li>
+        <div class="square1 "></div>
+        <p>Impresiones</p>
+      </li>
+      <li>
+        <div class="square4 "></div>
+        <p>Soporte técnico</p>
+      </li>
+      <li>
+        <div class="square3 "></div>
+        <p>Cables de red</p>
+      </li> 
+    </ul>   
+  </div>
+</div>
+</div>
+<script type="text/javascript" src="js/lib/Chart.min.js"></script>
+<script type="text/javascript" src="js/grafica.js"></script>

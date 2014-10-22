@@ -1,0 +1,64 @@
+#head2, #head3
+{
+	margin-top: 50px;
+}
+.alert
+{
+	font-size: 1.2em;
+}
+.square1, .square2, .square3, .square4, .square5
+{
+	width: 15px;
+	height: 15px;
+	background-color: #333;
+	margin-bottom: 9px;
+	border-radius: 3px;
+}
+
+.square1
+{
+	background-color: #4D5360;
+}
+
+.square2
+{
+	background-color: #949FB1;
+}
+
+.square3
+{
+	background-color: #FDB45C;
+}
+
+.square4
+{
+	background-color: #46BFBD;
+}
+
+.square5
+{
+	background-color: #F7464A;
+}
+ul li div
+{
+	float: left;
+	display: inline;
+	margin-right: 10px;
+	margin-top: 5px;
+}
+
+ul li
+{
+	list-style-type: none;
+}
+
+ul li p
+{
+	font-size: 1.2em;
+}
+
+.seccion
+{
+	padding-bottom: 20px;
+	padding-top: 30px;
+}
