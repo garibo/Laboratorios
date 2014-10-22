@@ -184,7 +184,7 @@ app.controller('serviciosController',['$scope', '$http', function ($scope, $http
 	$scope.curPage3 = 0;
  	$scope.pageSize3 = 5;
 
- 	$scope.numberOfPages2 = function() {
+ 	$scope.numberOfPages3 = function() {
 		return Math.ceil($scope.soporte.length / $scope.pageSize3);
 	};
 
